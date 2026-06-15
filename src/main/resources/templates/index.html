@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petnimals</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container-fluid px-3 mt-3">
+        <div class="row g-2 align-items-start">
+            
+            <div class="col-2 text-center mt-5 pt-5">
+                <img th:src="@{/img/A_1.jpg}" 
+                     alt="Anuncio Izquierdo 1" 
+                     class="rounded shadow img-fluid mb-4" 
+                     style="max-width: 400px; width: 100%; aspect-ratio: 1/1; object-fit: cover;">
+
+                <img th:src="@{/img/A_1.jpg}" 
+                     alt="Anuncio Izquierdo 2" 
+                     class="rounded shadow img-fluid" 
+                     style="max-width: 400px; width: 100%; aspect-ratio: 1/1; object-fit: cover;">
+            </div>
+
+            <div class="col-8">
+                <div class="container-fluid">
+
+                    <h1 class="text-center">Bienvenido a Petnimals</h1>
+
+                    <p class="text-center">
+                        Plataforma para productos, servicios veterinarios y adopciones.
+                    </p>
+                    
+                    <div class="text-center mb-5">
+                        <img th:src="@{/img/imagen_1.png}"
+                             alt="petnimals"
+                             width="1300"
+                             height="300"
+                             class="img-fluid">
+                    </div>
+
+                    <div class="row align-items-center mb-5 g-2">
+                        <div class="col-3">
+                            <div class="card p-2 d-flex flex-row align-items-center justify-content-center h-100">
+                                <img th:src="@{/img/icono_1.png}" alt="petnimals" width="40" height="40" class="me-2">
+                                <span style="font-size: 12px;">Productos de Calidad</span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="card p-2 d-flex flex-row align-items-center justify-content-center h-100">
+                                <img th:src="@{/img/icono_1.png}" alt="petnimals" width="40" height="40" class="me-2">
+                                <span style="font-size: 12px;">Reservas Fáciles</span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="card p-2 d-flex flex-row align-items-center justify-content-center h-100">
+                                <img th:src="@{/img/icono_1.png}" alt="petnimals" width="40" height="40" class="me-2">
+                                <span style="font-size: 12px;">Adopciones Responsables</span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="card p-2 d-flex flex-row align-items-center justify-content-center h-100">
+                                <img th:src="@{/img/icono_1.png}" alt="petnimals" width="40" height="40" class="me-2">
+                                <span style="font-size: 12px;">Atención al Cliente</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="fs-2 fw-bold text-center mb-5">    
+                        Explorar por Categorías
+                    </p>
+
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/5.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Operación Canina</span>
+                                <p class="mt-2 small">Procedimientos quirúrgicos seguros realizados por médicos veterinarios especializados.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/6.jpg}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Atención a Domicilio</span>
+                                <p class="mt-2 small">Servicio veterinario en la comodidad de tu hogar, reduciendo el estrés.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/7.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Internamiento Veterinario</span>
+                                <p class="mt-2 small">Cuidado y monitoreo permanente para mascotas que requieren observación.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/8.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Medicina General</span>
+                                <p class="mt-2 small">Consultas veterinarias para diagnóstico, prevención y tratamiento.</p>
+                            </div>
+                        </div>
+                        
+                        <p class="fs-2 fw-bold text-center mb-4 w-100">   
+                            Productos Destacados
+                        </p>
+                    
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/1.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Leonardo Quality Selection Pato</span>
+                                <p class="mt-2 small">Con alto porcentaje de proteína y gran sabor.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/2.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Gran Plus Menu Gato Salmón</span>
+                                <p class="mt-2 small">Alimento balanceado. Protege la salud del tracto urinario.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/3.png}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-4 d-block">Hills SD Adult Optimal Care</span>
+                                <p class="mt-2 small">Nutrición completa y equilibrada para gatos adultos.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-4 text-center h-100">
+                                <img th:src="@{/img/4.jpg}" alt="petnimals" width="120" height="120" class="mx-auto d-block">
+                                <span class="fw-bold mt-3 d-block">Arena Para Gato Origens</span>
+                                <p class="mt-2 small">Arena sanitaria totalmente natural diseñada para mantener el ambiente fresco.</p>
+                            </div>
+                        </div>
+                    </div> </div> </div> <div class="col-2 text-center mt-5 pt-5">
+                        
+                <img th:src="@{/img/A_2.jpg}" 
+                     alt="Anuncio Derecho 1" 
+                     class="rounded shadow img-fluid mb-4" 
+                     style="max-width: 400px; width: 100%; aspect-ratio: 1/1; object-fit: cover;">
+
+                <img th:src="@{/img/A_2.jpg}" 
+                     alt="Anuncio Derecho 2" 
+                     class="rounded shadow img-fluid" 
+                     style="max-width: 400px; width: 100%; aspect-ratio: 1/1; object-fit: cover;">
+            </div>
+
+        </div> </div> <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script th:src="@{/JS/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/JS/app.js}"></script>
+
+</body>
+
+</html>

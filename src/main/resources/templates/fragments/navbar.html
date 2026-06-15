@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="navbar">
+
+    <!-- Barra superior -->
+    <nav class="navbar navbar-expand-lg navbar-top">
+
+        <div class="container-fluid px-4">
+
+            <!-- Logo y nombre -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+
+                <img th:src="@{/img/logo.png}"
+                     alt="petnimals"
+                     width="60"
+                     height="60"
+                     class="me-2">
+                
+                <span class="fw-bold fs-3 text-white">
+                    Petnimals
+                </span>
+
+            </a>
+
+            <!-- Botón responsive -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarpetnimals">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                 id="navbarpetnimals">
+
+                <!-- Buscador -->
+                <form class="d-flex flex-grow-1 mx-lg-5 my-3 my-lg-0">
+
+                    <select class="form-select me-2" style="max-width:220px;">
+                        <option selected>Todas las categorías</option>
+
+                        <option th:each="cat : ${listaCategorias}" 
+                                th:value="${cat.id}" 
+                                th:text="${cat.nombre}">
+                        </option>
+                    </select>
+
+                    <input class="form-control"
+                           type="search"
+                           placeholder="Buscar productos...">
+
+                    <button class="btn btn-light ms-2"
+                            type="submit">
+
+                        <i class="bi bi-search"></i>
+
+                    </button>
+
+                </form>
+
+                <!-- Opciones usuario -->
+                <ul class="navbar-nav align-items-lg-center">
+
+                    <!-- Favoritos -->
+                    <li class="nav-item me-lg-3">
+
+                        <a class="nav-link text-white d-flex align-items-center"
+                           href="#">
+
+                            <i class="bi bi-heart fs-5 me-1"></i>
+
+                            <span>Favoritos</span>
+
+                        </a>
+
+                    </li>
+
+                    <!-- Carrito -->
+                    <li class="nav-item me-lg-3">
+
+                        <a class="nav-link text-white position-relative d-flex align-items-center"
+                           href="#">
+
+                            <i class="bi bi-cart3 fs-5 me-1"></i>
+
+                            <span>Carrito</span>
+
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                                0
+
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <!-- Usuario -->
+                    <li class="nav-item">
+
+                        <a class="nav-link text-white d-flex align-items-center"
+                           href="#">
+
+                            <i class="bi bi-person-circle fs-5 me-1"></i>
+
+                            <span>Mi Cuenta</span>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Menú inferior -->
+    <nav class="navbar navbar-expand-lg navbar-bottom">
+
+        <div class="container">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Tienda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Veterinaria</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Adopciones</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white px-4" href="#">Ayuda</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>
+
+</body>
+</html>

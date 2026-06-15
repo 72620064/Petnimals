@@ -1,0 +1,33 @@
+:root{
+    --pet-orange: #FF914D;
+    --pet-orange-dark: #F57C33;
+}
+
+.navbar-top{
+    background-color: var(--pet-orange);
+}
+
+.navbar-bottom{
+    background-color: var(--pet-orange-dark);
+}
+
+.navbar-bottom .nav-link{
+    font-weight: 500;
+}
+
+.navbar-bottom .nav-link:hover{
+    opacity: 0.8;
+}
+
+.navbar-brand{
+    text-decoration: none;
+}
+
+.iniciar{
+    color: var(--pet-orange) !important;
+}
+
+.registrarse{
+    background-color: var(--pet-orange) !important; 
+}
+
