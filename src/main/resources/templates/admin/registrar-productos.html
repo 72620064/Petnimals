@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar en Tienda - Petnimals</title>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+</head>
+<body class="bg-light">
+
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm border-0" style="border-radius: 15px;">
+                    <div class="card-body p-4">
+                        <h3 class="card-title fw-bold text-center mb-4" style="color: #f28131;">Registrar Nuevo Producto</h3>
+                        
+                        <form th:action="@{/tienda/guardar}" th:object="${tienda}" method="POST">
+                            
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label fw-bold">Nombre del Producto</label>
+                                <input type="text" th:field="*{nombre}" id="nombre" class="form-control" placeholder="Ej. RICOCAN" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label fw-bold">Descripción</label>
+                                <textarea th:field="*{descripcion}" id="descripcion" class="form-control" rows="3" placeholder="Detalles..."></textarea>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="precio" class="form-label fw-bold">Precio (S/.)</label>
+                                    <input type="number" step="0.01" th:field="*{precio}" id="precio" class="form-control" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="stock" class="form-label fw-bold">Stock Inicial</label>
+                                    <input type="number" th:field="*{stock}" id="stock" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="imagenUrl" class="form-label fw-bold">URL de la Imagen</label>
+                                <input type="url" th:field="*{imagenUrl}" id="imagenUrl" class="form-control" placeholder="https://...">
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn text-white fw-bold py-2" style="background-color: #f28131; border-radius: 20px;">
+                                    GUARDAR PRODUCTO
+                                </button>
+                                <a href="/tienda" class="btn btn-light fw-bold py-2" style="border-radius: 20px;">Cancelar</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+    <script th:src="@{/JS/bootstrap.min.js}"></script>
+</body>
+</html>

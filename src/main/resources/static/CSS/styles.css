@@ -31,3 +31,48 @@
     background-color: var(--pet-orange) !important; 
 }
 
+.btn-orange {
+    background-color: transparent;
+    color: var(--petnimals-orange);
+    border: 2px solid var(--petnimals-orange);
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-orange:hover {
+    background-color: var(--petnimals-orange);
+    color: white;
+}
+.filter-sidebar {
+    border-right: 1px solid #e0e0e0;
+}
+.filter-title {
+    font-weight: 700;
+    color: var(--petnimals-dark);
+    border-bottom: 2px solid var(--petnimals-orange);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+.product-card {
+    border: 1px solid #eef0f2;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.product-price {
+    color: #d93838;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.category-badge {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 15px;
+    display: inline-block;
+}
