@@ -28,7 +28,16 @@
                                 <label for="descripcion" class="form-label fw-bold">Descripción</label>
                                 <textarea th:field="*{descripcion}" id="descripcion" class="form-control" rows="3" placeholder="Detalles..."></textarea>
                             </div>
-
+                            <div class="mb-3">
+                                <label for="categoria" class="form-label fw-bold">Categoría</label>
+                                <select th:field="*{categoria}" id="categoria" class="form-select" required>
+                                    <option value="" disabled selected>--- Seleccione una categoría ---</option>
+                                    <option th:each="cat : ${listaCategorias}" 
+                                            th:value="${cat.id}" 
+                                            th:text="${cat.nombre}">
+                                    </option>
+                                </select>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="precio" class="form-label fw-bold">Precio (S/.)</label>

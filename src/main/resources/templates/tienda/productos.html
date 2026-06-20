@@ -67,7 +67,7 @@
                             
                             <div class="card-body p-0 d-flex flex-column">
                                 <div class="mb-1">
-                                    <span >GENERAL</span>
+                                    <span th:text="${prod.categoria != null ? prod.categoria.nombre : 'General'}">General</span>
                                 </div>
                                 <h6 class="card-title fw-bold text-dark text-uppercase mb-1" th:text="${prod.nombre}">Nombre del Producto</h6>
                                 <p class="card-text text-muted small flex-grow-1 text-truncate" th:text="${prod.descripcion}">Descripción breve del artículo.</p>
