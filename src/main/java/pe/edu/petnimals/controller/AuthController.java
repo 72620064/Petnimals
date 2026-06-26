@@ -24,13 +24,12 @@ public class AuthController {
 
     // 2. PROCESA EL REGISTRO DEL CLIENTE
     @PostMapping("/registro")
-    public String registrarCliente(@ModelAttribute("usuario") Usuario usuario, Model model) {
+    public String registrarUsuario(@ModelAttribute("usuario") Usuario usuario) {
         try {
             usuarioService.registrarCliente(usuario);
-            return "redirect:/login?exito";
+            return "redirect:/login?registrado=true";
         } catch (Exception e) {
-            model.addAttribute("error", e.getMessage());
-            return "usuario/registro"; // <- Cambiado: En caso de error regresa a la carpeta usuario
+            return "redirect:/registro?error=" + e.getMessage();
         }
     }
 

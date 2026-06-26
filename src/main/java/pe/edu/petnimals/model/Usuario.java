@@ -1,6 +1,7 @@
 package pe.edu.petnimals.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "usuarios")
@@ -8,42 +9,60 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_usuario")
+    private Long idUsuario;
 
     @Column(nullable = false, length = 100)
-    private String nombre;
+    private String nombres;
 
-    // unique = true asegura en la base de datos que NO se repitan correos (Cumple RN-01)
+    @Column(nullable = false, length = 100)
+    private String apellidos;
+
     @Column(nullable = false, unique = true, length = 100)
     private String correo;
 
-    @Column(nullable = false, length = 255) // 255 porque luego las contraseñas se encriptan y se hacen largas
-    private String contrasenia;
+    @Column(nullable = false, length = 255)
+    private String password;
 
-    // Definimos el rol como un texto (CLIENTE, VETERINARIO, ADMINISTRADOR, ALBERGUE) (Cumple RN-06)
-    @Column(nullable = false, length = 20)
-    private String rol;
+    @Column(length = 20)
+    private String telefono;
 
-    // Constructor vacío obligatorio para Hibernate
+    @Column(name = "fecha_registro", insertable = false, updatable = false)
+    private LocalDateTime fechaRegistro;
+
+    @ManyToOne // <-- ¡ESTA ANOTACIÓN ES LA QUE FALTA!
+    @JoinColumn(name = "id_rol", nullable = true) // Sincroniza con el id_rol de tu tabla
+    private Rol rol;
+
+
     public Usuario() {}
 
-    // Constructor completo
-    public Usuario(String nombre, String correo, String contrasenia, String rol) {
-        this.nombre = nombre;
+    public Usuario(Long idUsuario, String nombres, String apellidos, String correo, String password, String telefono, LocalDateTime fechaRegistro, Rol rol) {
+        this.idUsuario = idUsuario;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
         this.correo = correo;
-        this.contrasenia = contrasenia;
+        this.password = password;
+        this.telefono = telefono;
+        this.fechaRegistro = fechaRegistro;
         this.rol = rol;
     }
-
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    
+// Getters y Setters
+    public Long getIdUsuario() { return idUsuario; }
+    public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
+    public String getNombres() { return nombres; }
+    public void setNombres(String nombres) { this.nombres = nombres; }
+    public String getApellidos() { return apellidos; }
+    public void setApellidos(String apellidos) { this.apellidos = apellidos; }
     public String getCorreo() { return correo; }
     public void setCorreo(String correo) { this.correo = correo; }
-    public String getContrasenia() { return contrasenia; }
-    public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
-    public String getRol() { return rol; }
-    public void setRol(String rol) { this.rol = rol; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public LocalDateTime getFechaRegistro() { return fechaRegistro; }
+    public void setFechaRegistro(LocalDateTime fechaRegistro) { this.fechaRegistro = fechaRegistro; }
+    public Rol getRol() { return rol; }
+    public void setRol(Rol rol) { this.rol = rol; }
 }

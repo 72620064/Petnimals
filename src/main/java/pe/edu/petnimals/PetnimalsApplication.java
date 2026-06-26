@@ -2,6 +2,7 @@ package pe.edu.petnimals;
 
 import pe.edu.petnimals.model.Categoria;
 import pe.edu.petnimals.model.Usuario;
+import pe.edu.petnimals.model.Rol;
 import pe.edu.petnimals.repository.UsuarioRepository;
 import pe.edu.petnimals.service.CategoriaService;
 import pe.edu.petnimals.util.SecurityUtils;
@@ -25,12 +26,15 @@ public class PetnimalsApplication {
             // 1. POBLAR CATEGORÍAS (Para tu Navbar Dinámico)
             if (categoriaService.obtenerTodas().isEmpty()) {
                 System.out.println(">>> Insertando categorías iniciales en la base de datos...");
-                categoriaService.guardarCategoria(new Categoria("Alimentos"));
-                categoriaService.guardarCategoria(new Categoria("Juguetes"));
-                categoriaService.guardarCategoria(new Categoria("Accesorios"));
-                categoriaService.guardarCategoria(new Categoria("Medicamentos"));
-                categoriaService.guardarCategoria(new Categoria("Higiene"));
-                categoriaService.guardarCategoria(new Categoria("Camas"));
+                
+                String[] nombresCategorias = {"Alimentos", "Juguetes", "Accesorios", "Medicamentos", "Higiene", "Camas"};
+                
+                for (String nombreCat : nombresCategorias) {
+                    Categoria cat = new Categoria();
+                    cat.setNombre(nombreCat);
+                    categoriaService.guardarCategoria(cat);
+                }
+                
                 System.out.println(">>> ¡Categorías guardadas con éxito!");
             }
 
@@ -38,16 +42,44 @@ public class PetnimalsApplication {
             if (usuarioRepository.count() == 0) {
                 System.out.println(">>> Creando cuentas de Administradores con contraseñas encriptadas...");
                 
-                // Encriptamos una contraseña para cada uno antes de guardarla en MySQL
-                // Tip: Cambien el texto entre comillas por la contraseña que deseen usar.
+                // Encriptamos la contraseña "Certus123*" para cada uno en formato BCrypt
                 String clavePiero = SecurityUtils.encriptarContrasenia("Certus123*");
-                String claveAndre = SecurityUtils.encriptarContrasenia("Certus123*");
+                String claveFernando = SecurityUtils.encriptarContrasenia("Certus123*");
                 String claveJunior = SecurityUtils.encriptarContrasenia("Certus123*");
 
-                // Registramos los 3 administradores oficiales con sus correos reales
-                usuarioRepository.save(new Usuario("Piero Sandoval", "72620064@certus.edu.pe", clavePiero, "ADMINISTRADOR"));
-                usuarioRepository.save(new Usuario("Andre Velasquez", "75349968@certus.edu.pe", claveAndre, "ADMINISTRADOR"));
-                usuarioRepository.save(new Usuario("Junior Chirinos", "74700717@certus.edu.pe", claveJunior, "ADMINISTRADOR"));
+                // Instanciamos el objeto Rol apuntando al ID 1 (ADMINISTRADOR) creado en Workbench
+                Rol rolAdmin = new Rol();
+                rolAdmin.setIdRol(1L); // El ID 1 corresponde a ADMINISTRADOR en tu tabla 'roles'
+
+                // Registro del Administrador 1: Piero
+                Usuario user1 = new Usuario();
+                user1.setNombres("Piero");
+                user1.setApellidos("Sandoval");
+                user1.setCorreo("72620064@certus.edu.pe");
+                user1.setPassword(clavePiero);
+                user1.setTelefono("993867737");
+                user1.setRol(rolAdmin); 
+                usuarioRepository.save(user1);
+
+                // Registro del Administrador 2: Fernando
+                Usuario user2 = new Usuario();
+                user2.setNombres("Fernando");
+                user2.setApellidos("Velasquez");
+                user2.setCorreo("difertota@gmail.com");
+                user2.setPassword(claveFernando);
+                user2.setTelefono("975149824");
+                user2.setRol(rolAdmin);
+                usuarioRepository.save(user2);
+
+                // Registro del Administrador 3: Junior
+                Usuario user3 = new Usuario();
+                user3.setNombres("Junior");
+                user3.setApellidos("Chirinos");
+                user3.setCorreo("74700717@certus.edu.pe");
+                user3.setPassword(claveJunior);
+                user3.setTelefono("912553872");
+                user3.setRol(rolAdmin);
+                usuarioRepository.save(user3);
                 
                 System.out.println(">>> ¡Cuentas de administrador protegidas y guardadas exitosamente!");
             }

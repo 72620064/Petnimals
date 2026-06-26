@@ -1,4 +1,4 @@
-package pe.edu.petnimals.model; 
+package pe.edu.petnimals.model;
 
 import jakarta.persistence.*;
 
@@ -8,24 +8,27 @@ public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+    @Column(name = "id_categoria")
+    private Long idCategoria;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String nombre;
 
-    // Constructor vacío (Obligatorio para Hibernate)
+    @Column(length = 255)
+    private String descripcion;
+
     public Categoria() {}
 
-    // Constructor con parámetros (Opcional, pero útil)
-    public Categoria(String nombre) {
+    public Categoria(Long idCategoria, String nombre, String descripcion) {
+        this.idCategoria = idCategoria;
         this.nombre = nombre;
-        
+        this.descripcion = descripcion;
     }
-
-    // Getters y Setters (Obligatorios)
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    
+    public Long getIdCategoria() { return idCategoria; }
+    public void setIdCategoria(Long idCategoria) { this.idCategoria = idCategoria; }
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 }

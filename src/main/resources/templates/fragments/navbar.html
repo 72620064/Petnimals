@@ -44,7 +44,7 @@
                         <option selected>Todas las categorías</option>
 
                         <option th:each="cat : ${listaCategorias}" 
-                                th:value="${cat.id}" 
+                                th:value="${cat.idCategoria}" 
                                 th:text="${cat.nombre}">
                         </option>
                     </select>

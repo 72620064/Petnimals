@@ -34,9 +34,6 @@ public class TiendaController {
     public String mostrarFormularioRegistro(Model model) {
         model.addAttribute("tienda", new Producto());
         
-        // Aquí también usamos tu servicio para llenar el combo del formulario
-        // Ojo: Si en tu HTML de registrar-productos pusiste th:each="cat : ${categorias}", 
-        // cámbialo ahí también por ${listaCategorias} para que coincida.
         model.addAttribute("listaCategorias", categoriaService.obtenerTodas()); 
         
         return "admin/registrar-productos"; 
