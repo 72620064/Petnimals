@@ -3,6 +3,8 @@
     --pet-orange-dark: #F57C33;
 }
 
+/*BARRA DE NAVEGACIÓN*/
+
 .navbar-top{
     background-color: var(--pet-orange);
 }
@@ -23,10 +25,12 @@
     text-decoration: none;
 }
 
+/*LOGIN*/
 .iniciar{
     color: var(--pet-orange) !important;
 }
 
+/*REGISTRO*/
 .registrarse{
     background-color: var(--pet-orange) !important; 
 }
@@ -43,6 +47,45 @@
     background-color: var(--petnimals-orange);
     color: white;
 }
+
+/*INDEX*/
+.hero-section {
+    background-color: #FFF8F3; /* Fondo crema suave como la imagen */
+    border-radius: 20px;
+}
+.btn-orange {
+    background-color: #F26522; /* Naranja corporativo */
+    color: white;
+}
+.btn-orange:hover {
+    background-color: #d44d0e;
+    color: white;
+}
+.btn-outline-orange {
+    border-color: #F26522;
+    color: #F26522;
+}
+.btn-outline-orange:hover {
+    background-color: #F26522;
+    color: white;
+}
+.category-card {
+    background-color: #F8F9FA;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+}
+.bg-icon{
+    background-color: #FFF8F3;
+}
+.icon {
+    color: #F26522;
+}
+
+/*TIENDA*/
 .filter-sidebar {
     border-right: 1px solid #e0e0e0;
 }
@@ -53,6 +96,7 @@
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
+
 .product-card {
     border: 1px solid #eef0f2;
     border-radius: 12px;
@@ -75,4 +119,276 @@
     padding: 4px 10px;
     border-radius: 15px;
     display: inline-block;
+}
+
+/*VETERINARIA*/
+/* Estilos del Sidebar Lateral */
+.sidebar {
+    background-color: #FAF6F0;
+    border-right: 1px solid #EAE5DF;
+    min-height: calc(100vh - 70px);
+}
+.sidebar .nav-link {
+    color: #555;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+.sidebar .nav-link:hover {
+    background-color: #F4EFE9;
+    color: #000;
+}
+.sidebar .nav-link.active {
+    background-color: #FFF0E6;
+    color: #F26522;
+    font-weight: bold;
+}
+/* Componentes del Flujo */
+.step-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #CCC;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.step-active .step-circle {
+    background-color: #F26522;
+}
+.step-text {
+    font-size: 0.85rem;
+    color: #777;
+    font-weight: 500;
+}
+.step-active .step-text {
+    color: #F26522;
+    font-weight: bold;
+}
+/* Tarjetas del Panel */
+.panel-card {
+    background: white;
+    border: 1px solid #EAE5DF;
+    border-radius: 12px;
+    padding: 16px;
+    height: 100%;
+}
+.item-selection-box {
+    border: 1px solid #EAE5DF;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+.item-selection-box.selected {
+    border-color: #F26522;
+    background-color: #FFFDFB;
+}
+.btn-orange {
+    background-color: #F26522;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+.btn-orange:hover {
+    background-color: #d44d0e;
+    color: white;
+}
+/* Mini Calendario de Muestra */
+.mini-calendar th {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 600;
+}
+.mini-calendar td {
+    font-size: 0.85rem;
+    padding: 6px 4px;
+    text-align: center;
+    width: 14.2%;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.mini-calendar td:hover:not(:empty) {
+    background-color: #F4EFE9;
+}
+.calendar-day-active {
+    background-color: #F26522 !important;
+    color: white;
+    font-weight: bold;
+}
+.time-slot {
+    border: 1px solid #EAE5DF;
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background: #FDFDFD;
+    font-weight: 500;
+}
+.time-slot:hover {
+    background-color: #F4EFE9;
+}
+.time-slot.selected {
+    background-color: #F26522 !important;
+    color: white;
+    border-color: #F26522;
+}
+
+/*CARRITO*/
+.panel-card {
+    background: white;
+    border: 1px solid #EAE5DF;
+    border-radius: 12px;
+    padding: 24px;
+}
+.btn-orange {
+    background-color: #F26522;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.btn-orange:hover {
+    background-color: #d44d0e;
+    color: white;
+}
+.text-orange {
+    color: #F26522;
+}
+/* Estilos de la tabla de productos */
+.table-carrito th {
+    font-weight: 600;
+    color: #777;
+    border-bottom: 2px solid #EAE5DF;
+    font-size: 0.9rem;
+}
+.table-carrito td {
+    vertical-align: middle;
+    border-bottom: 1px solid #F0EAE4;
+    padding: 16px 8px;
+}
+/* Selector de cantidad */
+.quantity-control {
+    max-width: 110px;
+    border: 1px solid #DCD6CD;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.quantity-control button {
+    background-color: #Fdfdfd;
+    border: none;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+    color: #F26522;
+    transition: background-color 0.2s;
+}
+.quantity-control button:hover {
+    background-color: #F4EFE9;
+}
+.quantity-control input {
+    border: none;
+    width: 40px;
+    height: 32px;
+    text-align: center;
+    font-weight: 600;
+    background: white;
+}
+.quantity-control input:focus {
+    outline: none;
+}
+/* Mini info card de envío gratis */
+.envio-gratis-box {
+    background-color: #FFF8F3;
+    border: 1px dashed #F26522;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+/*finalizar_compra*/
+body {
+    background-color: #FAF6F0; /* Fondo crema de la interfaz */
+}
+.panel-card {
+    background: white;
+    border: 1px solid #EAE5DF;
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+}
+.btn-orange {
+    background-color: #F26522;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.btn-orange:hover {
+    background-color: #d44d0e;
+    color: white;
+}
+.text-orange {
+    color: #F26522;
+}
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 6px;
+}
+.form-control, .form-select {
+    border: 1px solid #DCD6CD;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    background-color: #FAFAFA;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #F26522;
+    box-shadow: 0 0 0 0.2rem rgba(242, 101, 34, 0.15);
+    background-color: #FFF;
+}
+/* Estilos para las opciones de pago customizadas */
+.payment-option {
+    border: 1px solid #EAE5DF;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.payment-option:hover {
+    border-color: #F26522;
+}
+.form-check-input:checked {
+    background-color: #F26522;
+    border-color: #F26522;
+}
+/* Marcas de confianza al final */
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+}
+.trust-badge i {
+    color: #F26522;
+    font-size: 1.4rem;
+}
+.trust-badge span {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: #212529;
+}
+.trust-badge p {
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 0;
 }

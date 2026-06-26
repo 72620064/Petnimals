@@ -20,4 +20,11 @@ public class CategoriaController {
         return "index"; 
     }
     
+    @GetMapping("/veterinaria")
+    public String mostrarVeterinaria(Model model) {
+        // Es vital pasar la listaCategorias para que el Navbar fragment no falle
+        model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
+        return "veterinaria/reservar_cita"; 
+    }
+    
 }
