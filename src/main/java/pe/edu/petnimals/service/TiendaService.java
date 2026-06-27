@@ -16,7 +16,7 @@ public class TiendaService {
         return tiendaRepository.findAll();
     }
 
-    public void guardar(Producto producto) {
-        tiendaRepository.save(producto);
+    public Producto guardar(Producto producto) {
+        return tiendaRepository.save(producto);
     }
 }

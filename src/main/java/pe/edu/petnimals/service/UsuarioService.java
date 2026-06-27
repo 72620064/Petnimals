@@ -23,7 +23,6 @@ public class UsuarioService implements UserDetailsService {
         Usuario usuario = usuarioRepository.findByCorreo(correo)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con el correo: " + correo));
 
-        // ADAPTACIÓN: Convertimos el enum interno a String usando .name()
         // Si no tiene rol, por defecto le ponemos "CLIENTE"
         String nombreRol = (usuario.getRol() != null) ? usuario.getRol().getNombre().name() : Rol.TipoRol.CLIENTE.name();
 
