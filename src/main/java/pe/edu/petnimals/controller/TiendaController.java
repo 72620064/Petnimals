@@ -1,9 +1,14 @@
 package pe.edu.petnimals.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pe.edu.petnimals.model.Producto;
 import pe.edu.petnimals.service.TiendaService;
 import pe.edu.petnimals.service.CategoriaService; // <--- Importamos tu servicio de categorías
@@ -40,8 +45,9 @@ public class TiendaController {
     }
 
     @PostMapping("/guardar")
-    public String guardarEnTienda(@ModelAttribute("tienda") Producto producto) {
-        tiendaService.guardar(producto);
-        return "redirect:/tienda"; 
+    public String guardarProducto(@ModelAttribute Producto producto) {
+
+        tiendaService.guardar(producto); // Guarda en MySQL mediante el Repository
+        return "redirect:/tienda";
     }
 }
