@@ -11,14 +11,6 @@ public class CategoriaController {
 
     @Autowired
     private CategoriaService categoriaService;
-
-    @GetMapping({"/", "/index"})
-    public String verPaginaInicio(Model model) {
-        
-        model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
-        
-        return "index"; 
-    }
     
     @GetMapping("/veterinaria")
     public String mostrarVeterinaria(Model model) {
@@ -26,5 +18,6 @@ public class CategoriaController {
         model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
         return "veterinaria/reservar_cita"; 
     }
+    
     
 }

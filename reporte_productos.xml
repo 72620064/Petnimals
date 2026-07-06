@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<productos>
+    <producto>
+        <Id>1</Id>
+        <nombre> RICOCAN</nombre>
+        <precio>98.50</precio>
+        <stock>15</stock>
+    </producto>
+    <producto>
+        <Id>3</Id>
+        <nombre>  DOG CHOW</nombre>
+        <precio>137.70</precio>
+        <stock>20</stock>
+    </producto>
+    <producto>
+        <Id>4</Id>
+        <nombre> DE PATAS</nombre>
+        <precio>79.90</precio>
+        <stock>18</stock>
+    </producto>
+    <producto>
+        <Id>5</Id>
+        <nombre>BRAVECTO</nombre>
+        <precio>80.00</precio>
+        <stock>23</stock>
+    </producto>
+    <producto>
+        <Id>6</Id>
+        <nombre> VETLINEX</nombre>
+        <precio>19.90</precio>
+        <stock>16</stock>
+    </producto>
+</productos>

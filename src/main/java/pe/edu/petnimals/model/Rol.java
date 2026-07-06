@@ -30,4 +30,11 @@ public class Rol {
     
     public TipoRol getNombre() { return nombre; }
     public void setNombre(TipoRol nombre) { this.nombre = nombre; }
+
+    public Rol(Long idRol, TipoRol nombre) {
+        this.idRol = idRol;
+        this.nombre = nombre;
+    }
+    
+    
 }

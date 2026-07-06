@@ -45,6 +45,7 @@ public class SecurityConfig {
             .securityMatcher("/**") 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll() // <--- AGREGA ESTA LÍNEA AQUÍ TAMBIÉN por si acaso
+                .requestMatchers("/css/**", "/CSS/**","/JS/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
