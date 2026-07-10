@@ -5,6 +5,7 @@ import com.itextpdf.kernel.pdf.*;
 import com.itextpdf.layout.*;
 import com.itextpdf.layout.element.*;
 import java.util.List;
+import pe.edu.petnimals.model.Animal;
 import pe.edu.petnimals.model.Categoria;
 import pe.edu.petnimals.model.Usuario;
 
@@ -17,7 +18,7 @@ public class ExportarPDF {
             
             doc.add(new Paragraph("REPORTE DE PRODUCTOS"));
             
-            Table table = new Table(4);
+            Table table = new Table(5);
             table.addCell("ID");
             table.addCell("NOMBRE");
             table.addCell("DECRIPCION");
@@ -79,6 +80,32 @@ public class ExportarPDF {
                 table.addCell(u.getApellidos());
                 table.addCell(u.getCorreo());
                 table.addCell(u.getTelefono());
+            }
+            doc.add(table);
+            doc.close();
+        } catch (Exception e) { System.out.println(e.getMessage()); }
+    }
+    
+    public void animales(String ruta, List<Animal> animales) {
+        try {
+            PdfWriter writer = new PdfWriter(ruta);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document doc = new Document(pdf);
+            
+            doc.add(new Paragraph("REPORTE DE ANIMALES"));
+            Table table = new Table(5); 
+            table.addCell("ID"); 
+            table.addCell("NOMBRE");
+            table.addCell("EDAD"); 
+            table.addCell("RAZA");
+            table.addCell("DESCRIPCION"); 
+            
+            for (Animal u : animales) {
+                table.addCell(String.valueOf(u.getIdAnimal())); // Ajusta a tu getter real
+                table.addCell(u.getNombre());
+                table.addCell(u.getEdad());
+                table.addCell(u.getRaza());
+                table.addCell(u.getDescripcion());
             }
             doc.add(table);
             doc.close();

@@ -75,11 +75,11 @@
         </div>
         
         <div class="row g-3 text-center mb-5">
-            <div class="col-6 col-md-2" th:each="cat : ${listaCategorias}">
-                <a th:href="@{/tienda(categoriaId=${cat.id})}" class="text-decoration-none text-dark">
+            <div class="col-6 col-md-2" th:each="categorias: ${obtenerTodas}">
+                <a th:href="@{/tienda(idCategoria=${idCategoria})}" class="text-decoration-none text-dark">
                     <div class="card category-card p-3">
                         <div class="fs-1 mb-2"><i class="bi bi-tag-fill text-secondary"></i></div>
-                        <h6 class="fw-bold mb-0" th:text="${cat.nombre}">Categoría</h6>
+                        <h6 class="fw-bold mb-0" th:text="${categorias.nombre}">Categoría</h6>
                     </div>
                 </a>
             </div>

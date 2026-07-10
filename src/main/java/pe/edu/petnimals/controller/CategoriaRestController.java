@@ -43,6 +43,6 @@ public class CategoriaRestController {
        
         ExportarXML xml = new ExportarXML();
         xml.categorias("reporte_categorias.xml", lista);
-        return "¡Reportes de categorías generados!";
+        return "¡Reportes de categorías generados con éxito!";
     }
 }

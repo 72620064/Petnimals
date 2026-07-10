@@ -52,6 +52,6 @@ public class TiendaRestController {
         csv.productos("reporte_productos.csv", listaBD);
         xml.productos("reporte_productos.xml", listaBD);
 
-        return "¡Archivos generados con éxito en la raíz del proyecto!";
+        return "¡Reportes de productos generados con éxito!";
     }
 }

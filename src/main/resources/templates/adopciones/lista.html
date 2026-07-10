@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Animales en Adopción - Petnimals</title>
+
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container my-5">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold">🐾 Animales en adopción</h2>
+            <p class="text-muted">Dales una segunda oportunidad y cambia su vida</p>
+        </div>
+
+        <a th:href="@{/adopciones/publicar}" class="btn btn-orange">
+            <i class="bi bi-plus-circle me-1"></i> Publicar animal
+        </a>
+    </div>
+
+    <!-- MENSAJE SI NO HAY ANIMALES -->
+    <div class="alert alert-info text-center"
+         th:if="${#lists.isEmpty(animales)}">
+        No hay animales registrados aún.
+    </div>
+
+    <!-- GRID DE ANIMALES -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col" th:each="animal : ${animales}">
+
+            <div class="card h-100 shadow-sm border-0">
+
+                <!-- IMAGEN -->
+                <img th:src="${animal.imagen != null ? animal.imagen : '/IMG/default-pet.png'}"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+
+                <!-- CONTENIDO -->
+                <div class="card-body">
+
+                    <h5 class="fw-bold"
+                        th:text="${animal.nombre}">
+                        Nombre
+                    </h5>
+
+                    <!-- RAZA + EDAD -->
+                    <p class="text-muted mb-1"
+                       th:text="${animal.raza + ' - ' + animal.edad}">
+                        Raza - Edad
+                    </p>
+
+                    <p class="small text-muted"
+                       th:text="${animal.descripcion}">
+                        Descripción
+                    </p>
+
+                </div>
+
+                <!-- BOTÓN ADOPTAR -->
+                <div class="card-footer bg-white border-0">
+
+                    <form th:action="@{/adopciones/adoptar}" method="post">
+
+                        <input type="hidden"
+                               name="idAnimal"
+                               th:value="${animal.idAnimal}">
+
+                        <button type="submit" class="btn btn-orange w-100">
+                            ❤️ Adoptar
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script th:src="@{/JS/bootstrap.min.js}"></script>
+
+</body>
+</html>

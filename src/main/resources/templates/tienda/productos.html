@@ -51,6 +51,10 @@
             </div>
 
             <div class="col-lg-9">
+                
+                <div class="d-flex justify-content-end">
+                    <a th:href="@{/tienda/registrar-productos}" class="btn btn-orange btn-lg px-4">Registrar nuevo producto</a>
+                </div>
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="fw-bold m-0" style="color: var(--petnimals-dark);">Nuestros Productos</h3>
                     <span class="text-muted" th:text="${productos.size() + ' artículos encontrados'}">0 artículos encontrados</span>
