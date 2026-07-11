@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petnimals - Blog</title>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container my-5">
+        
+        <div class="p-4 mb-5 bg-light rounded-3 shadow-sm d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h2 class="fw-bold mb-1 text-dark">Blog Comunidad Petnimals</h2>
+                <p class="text-muted mb-0">Consejos de expertos, guías de salud y todo lo que necesitas saber sobre tus mascotas 🐾</p>
+            </div>
+            <a th:href="@{/blog/nuevo}" class="btn btn-warning text-white fw-bold px-4 py-2 shadow-sm">
+                <i class="bi bi-plus-lg me-2"></i>Añadir Artículo
+            </a>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-4" th:each="art : ${articulos}">
+                <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                    <img th:src="${art.imagen}" class="card-img-top" th:alt="${art.titulo}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <span class="badge mb-2 px-2 py-1 text-orange" style="background-color: #FFF8F3; font-size: 0.75rem;" th:text="${art.categoria}">Categoría</span>
+                        <h5 class="fw-bold text-dark card-title mb-2" th:text="${art.titulo}">Título</h5>
+                        <p class="text-muted small card-text mb-3" th:text="${art.resumen}">Resumen corto...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 px-4 pb-4 pt-0 d-flex justify-content-between align-items-center">
+                        <small class="text-muted" style="font-size: 0.75rem;"><i class="bi bi-calendar3 me-1"></i> 10 Jul 2026</small>
+                        <a th:href="@{'/blog/articulo/' + ${art.id}}" class="text-decoration-none text-orange fw-bold small">Leer más ➔</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/JS/bootstrap.min.js}"></script>
+</body>
+</html>

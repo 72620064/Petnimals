@@ -81,9 +81,10 @@
                                     <span class="text-muted small block d-block" th:text="'Stock: ' + ${prod.stock}">Stock: 0</span>
                                 </div>
                                 
-                                <button class="btn btn-orange w-100 py-2">
-                                    <i class="bi bi-cart-plus me-2"></i>AGREGAR
-                                </button>
+                                <form th:action="@{'/tienda/carrito/agregar/' + ${prod.idProducto}}" method="POST">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                                    <button type="submit" class="btn btn-orange w-100">AGREGAR</button>
+                                </form>
                             </div>
 
                         </div>

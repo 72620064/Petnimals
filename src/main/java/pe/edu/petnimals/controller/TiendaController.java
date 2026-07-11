@@ -1,22 +1,23 @@
 package pe.edu.petnimals.controller;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import pe.edu.petnimals.model.Producto;
+import java.security.Principal;
+import pe.edu.petnimals.model.*;
+import pe.edu.petnimals.repository.*;
+import pe.edu.petnimals.service.CategoriaService;
 import pe.edu.petnimals.service.TiendaService;
-import pe.edu.petnimals.service.CategoriaService; // <--- Importamos tu servicio de categorías
 
 @Controller
 @RequestMapping("/tienda")
-public class TiendaController {
+public class TiendaController { // Solo esta clase debe estar aquí
 
+    @Autowired private TiendaRepository productoRepository;
+    @Autowired private CarritoRepository carritoRepository;
+    @Autowired private UsuarioRepository usuarioRepository;
+    
     @Autowired
     private TiendaService tiendaService;
 
@@ -27,10 +28,10 @@ public class TiendaController {
     @GetMapping
     public String listarTienda(Model model) {
         model.addAttribute("productos", tiendaService.listarTodos());
-        
         // CORRECCIÓN CLAVE: Usamos el nombre exacto que tu Navbar espera encontrar
         model.addAttribute("listaCategorias", categoriaService.obtenerTodas());
-        
+        model.addAttribute("productos", productoRepository.findAll());
+        model.addAttribute("producto", new Producto());
         return "tienda/productos"; 
     }
 
@@ -49,5 +50,23 @@ public class TiendaController {
 
         tiendaService.guardar(producto); // Guarda en MySQL mediante el Repository
         return "redirect:/tienda";
+    }
+
+    @PostMapping("/carrito/agregar/{id}")
+    public String agregarAlCarrito(@PathVariable("id") Long id, Principal principal) {
+        if (principal == null) return "redirect:/login";
+        
+        Usuario usuario = usuarioRepository.findByCorreo(principal.getName())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Producto producto = productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        
+        ItemCarrito item = new ItemCarrito();
+        item.setUsuario(usuario);
+        item.setProducto(producto);
+        item.setCantidad(1);
+        
+        carritoRepository.save(item);
+        return "redirect:/carrito"; 
     }
 }

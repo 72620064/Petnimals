@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petnimals - Artículo</title>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container my-5" style="max-width: 800px;">
+        
+        <a th:href="@{/blog}" class="text-decoration-none text-orange fw-bold mb-4 d-inline-block">
+            <i class="bi bi-arrow-left"></i> Volver al Blog
+        </a>
+
+        <article>
+            <header class="mb-4">
+                <span class="badge px-2 py-1 text-orange mb-2" style="background-color: #FFF8F3;" th:text="${categoria}">Categoría</span>
+                <h1 class="fw-bold text-dark mb-3" th:text="${titulo}">Título del Artículo</h1>
+                <div class="d-flex align-items-center text-muted small">
+                    <span class="me-3"><i class="bi bi-calendar3 me-1"></i> 10 Jul 2026</span>
+                    <span><i class="bi bi-clock me-1"></i> 4 min de lectura</span>
+                </div>
+            </header>
+
+            <img th:src="${imagen}" class="img-fluid rounded-3 shadow-sm mb-4 w-100" alt="Imagen del artículo" style="max-height: 420px; object-fit: cover;">
+
+            <div class="text-dark lh-lg fs-5">
+                
+                <p class="fw-bold text-secondary border-start border-4 border-warning ps-3 my-4" th:text="${resumen}">
+                    Resumen introductorio...
+                </p>
+                
+                <hr class="my-4">
+
+                <div th:if="${titulo.contains('Vacunas')}">
+                    <h3 class="fw-bold text-dark mt-4 mb-3">¿Por qué es vital el esquema de vacunación?</h3>
+                    <p>Al nacer, los cachorros reciben anticuerpos temporales a través de la leche materna. Sin embargo, esta protección natural desaparece a las pocas semanas, dejando su sistema inmunológico vulnerable a virus altamente contagiosos y mortales.</p>
+                    
+                    <div class="bg-light p-4 rounded-3 my-4 border-start border-4 border-orange">
+                        <h5 class="fw-bold text-dark"><i class="bi bi-shield-check me-2 text-orange"></i>Las vacunas principales (Core)</h5>
+                        <ul class="mb-0 mt-2 small">
+                            <li><strong>Parvovirus y Moquillo:</strong> Altamente contagiosos, afectan el sistema digestivo y nervioso. Se aplican desde las 6-8 semanas.</li>
+                            <li><strong>Vacuna Quíntuple o Séxtuple:</strong> Protege contra Adenovirus, Hepatitis, Influenza y Leptospirosis.</li>
+                            <li><strong>Antirrábica:</strong> Obligatoria por ley, se coloca a partir de los 4 meses de edad.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="fw-bold text-dark mt-4 mb-3">Consejos para el día de la cita</h4>
+                    <p>Asegúrate de que tu cachorro esté desparasitado previamente. Después de la inyección, es completamente normal que muestre un poco de decaimiento o somnolencia durante las primeras 24 horas. Evita sacarlo a parques públicos hasta que tenga el esquema completo.</p>
+                </div>
+
+                <div th:if="${titulo.contains('gatos')}">
+                    <h3 class="fw-bold text-dark mt-4 mb-3">El instinto felino a mitad de la noche</h3>
+                    <p>A diferencia de los humanos, los felinos poseen una naturaleza crepuscular y nocturna. Sus ancestros cazaban al amparo de la oscuridad, un patrón genético que tus pequeños felinos hogareños aún conservan intacto.</p>
+                    
+                    <div class="bg-light p-4 rounded-3 my-4 border-start border-4 border-orange">
+                        <h5 class="fw-bold text-dark"><i class="bi bi-lightbulb me-2 text-warning"></i>Principales razones del maullido nocturno</h5>
+                        <ul class="mb-0 mt-2 small">
+                            <li><strong>Aburrimiento o falta de actividad:</strong> Si duermen todo el día mientras trabajas, acumulan demasiada energía para la noche.</li>
+                            <li><strong>Petición de alimento:</strong> Aprenden rápido que maullar despierta al dueño para rellenar el plato.</li>
+                            <li><strong>Madurez u hormonas:</strong> Si no están esterilizados, los maullidos fuertes son llamados de apareamiento.</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="fw-bold text-dark mt-4 mb-3">¿Cómo solucionar este comportamiento?</h4>
+                    <p>Establece rutinas de juego intensas justo antes de irte a dormir usando cañas o punteros interactivos para cansarlo. Finaliza la sesión ofreciéndole su cena principal; esto activará su ciclo natural de "cazar, comer, asearse y dormir", garantizándote una noche tranquila.</p>
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+
+    <script th:src="@{/JS/bootstrap.min.js}"></script>
+</body>
+</html>

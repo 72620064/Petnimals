@@ -392,3 +392,9 @@ body {
     color: #777;
     margin-bottom: 0;
 }
+
+/*CSS carrito Fernando*/
+.product-img { width: 70px; height: 70px; object-fit: cover; border-radius: 10px; }
+.card-shadow { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05); border-radius: 15px; border: none; }
+.btn-orange { background-color: #fd7e14; color: white; }
+.btn-orange:hover { background-color: #e66800; color: white; }

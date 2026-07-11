@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petnimals - Nuevo Artículo</title>
+    <link rel="stylesheet" th:href="@{/CSS/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container my-5" style="max-width: 600px;">
+        <div class="card shadow border-0 p-4">
+            <h2 class="fw-bold text-dark mb-4"><i class="bi bi-plus-circle me-2 text-orange"></i>Añadir Nuevo Artículo</h2>
+            
+            <form th:action="@{/blog/guardar}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">Título del Artículo</label>
+                    <input type="text" name="titulo" class="form-control" placeholder="Ej. Cuidados para hámsters" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">Categoría</label>
+                    <select name="categoria" class="form-select" required>
+                        <option value="Salud">Salud</option>
+                        <option value="Comportamiento">Comportamiento</option>
+                        <option value="Alimentación">Alimentación</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">Enlace de la Imagen (URL)</label>
+                    <input type="url" name="imagen" class="form-control" placeholder="https://images.unsplash.com/..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">Resumen Corto</label>
+                    <input type="text" name="resumen" class="form-control" placeholder="Una breve descripción para la tarjeta..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-dark">Contenido Detallado</label>
+                    <textarea name="contenido" class="form-control" rows="6" placeholder="Escribe aquí toda la información importante del artículo..." required></textarea>
+                </div>
+
+                <div class="d-flex gap-2 justify-content-end">
+                    <a th:href="@{/blog}" class="btn btn-light">Cancelar</a>
+                    <button type="submit" class="btn btn-warning text-white fw-bold">Guardar y Publicar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/JS/bootstrap.min.js}"></script>
+</body>
+</html>
